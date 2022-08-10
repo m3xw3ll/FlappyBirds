@@ -239,6 +239,7 @@ while run:
 
     if not in_menu:
         screen.blit(bg, (0, 0))
+        draw_score(str(score), font, (255, 255, 255))
         bird_group.draw(screen)
         bird_group.update()
         pipe_group.draw(screen)
@@ -249,7 +250,6 @@ while run:
     # Update score
     if len(pipe_group) > 0:
         passed_pipe, score = update_score(bird_group, pipe_group, passed_pipe, score)
-    draw_score(str(score), font, (255, 255, 255))
 
     # Check if bird hits the ground
     if bird.rect.bottom > 500 and not bird.collision:
